@@ -35,7 +35,7 @@ class PurchaseController extends Controller
      */
     public function store(CreatePurchaseRequest $request)
     {
-        return (bool)Purchase::create([
+        return Purchase::create([
             'customer_name' => $request->input('customerName'),
             'offering_id' => $request->input('offeringID'),
             'quantity' => $request->input('quantity'),

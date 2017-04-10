@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePurchaseRequest;
-use App\Models\Offering;
 use App\Models\Purchase;
 
 class PurchaseController extends Controller
@@ -15,16 +14,15 @@ class PurchaseController extends Controller
 
     public function create()
     {
-        $offerings = Offering::all();
-        return view('purchase.create', compact('offerings'));
+        return view('purchase.create');
     }
 
     public function store(CreatePurchaseRequest $request)
     {
-        $offeringId = $request->input('offeringID');
-        $offering = Offering::find($offeringId);
-        Purchase::create([
-
+        return (bool)Purchase::create([
+            'customer_name' => $request->input('customerName'),
+            'offering_id' => $request->input('offeringID'),
+            'quantity' => $request->input('quantity'),
         ]);
     }
 }

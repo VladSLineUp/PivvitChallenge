@@ -12,12 +12,7 @@ class Purchase extends Model
         'quantity'
     ];
 
-    protected $visible = [
-        'id',
-        'customer_name',
-        'offering_id',
-        'quantity'
-    ];
+    protected $visible = ['id', 'customer_name', 'offering_id', 'quantity', 'offering'];
 
     /**
      * Offering relationship

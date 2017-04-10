@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePurchaseRequest;
 use App\Models\Purchase;
+use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
 {
@@ -14,7 +15,7 @@ class PurchaseController extends Controller
      */
     public function all()
     {
-        return Purchase::all();
+        return Purchase::query()->with('offering')->get();
     }
 
     /**
@@ -31,13 +32,12 @@ class PurchaseController extends Controller
      * Save purchase in DB or return false if fails
      *
      * @param CreatePurchaseRequest $request
-     * @return bool
      */
-    public function store(CreatePurchaseRequest $request)
+    public function store(Request $request)
     {
         return Purchase::create([
-            'customer_name' => $request->input('customerName'),
-            'offering_id' => $request->input('offeringID'),
+            'customer_name' => $request->input('customer_name'),
+            'offering_id' => $request->input('offering_id'),
             'quantity' => $request->input('quantity'),
         ]);
     }

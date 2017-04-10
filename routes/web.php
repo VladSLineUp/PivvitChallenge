@@ -19,8 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['middleware' => 'auth'], function () {
-
+Route::get('/', function () {
+    return view('index');
+});
+Route::get('/purchase-list', function () {
+    return view('index');
 });
 
 

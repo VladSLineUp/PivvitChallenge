@@ -13,7 +13,10 @@ class Purchase extends Model
     ];
 
     protected $visible = [
-        '*'
+        'id',
+        'customer_name',
+        'offering_id',
+        'quantity'
     ];
 
     public function offering()

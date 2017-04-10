@@ -8,6 +8,6 @@ class OfferingController extends Controller
 {
     public function all()
     {
-        return Offering::all();
+        return Offering::with('purchase')->get();
     }
 }

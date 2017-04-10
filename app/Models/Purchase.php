@@ -12,6 +12,10 @@ class Purchase extends Model
         'quantity'
     ];
 
+    protected $visible = [
+        '*'
+    ];
+
     public function offering()
     {
         return $this->belongsTo(Offering::class);

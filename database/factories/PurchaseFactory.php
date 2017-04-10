@@ -6,8 +6,8 @@ use App\Models\Purchase;
 
 $factory->define(Purchase::class, function (Faker\Generator $faker) {
     $offerings = Offering::all('id')->toArray();
-    $minOfferingId = min($offerings);
-    $maxOfferingId = max($offerings);
+    $minOfferingId = min($offerings)['id'];
+    $maxOfferingId = max($offerings)['id'];
     return [
         'customer_name' => $faker->name,
         'quantity' => mt_rand(1, 9),

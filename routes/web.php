@@ -19,6 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/offerings', 'OfferingController@all');
-Route::get('/purchases', 'PurchaseController@all');
-Route::post('/purchases', 'PurchaseController@store');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/offerings', 'OfferingController@all');
+    Route::get('/purchases', 'PurchaseController@all');
+    Route::post('/purchases', 'PurchaseController@store');
+});
+
+
+

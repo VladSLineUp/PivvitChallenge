@@ -12,6 +12,11 @@ class Offering extends Model
         'price'
     ];
 
+    /**
+     * Purchase relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function purchase()
     {
         return $this->hasOne(Purchase::class);

@@ -19,6 +19,11 @@ class Purchase extends Model
         'quantity'
     ];
 
+    /**
+     * Offering relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function offering()
     {
         return $this->belongsTo(Offering::class);
